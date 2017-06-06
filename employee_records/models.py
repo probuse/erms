@@ -3,9 +3,9 @@ from django.db import models
 
 
 TASK_STATUS = (
-	('n', 'New'),
-	('o', 'Ongoing'),
-	('c', 'Completed')
+	('n', 'new'),
+	('o', 'ongoing'),
+	('c', 'completed')
 )
 
 class Employee(models.Model):
@@ -14,15 +14,16 @@ class Employee(models.Model):
 		verbose_name='Employee Name', 
 		on_delete=models.CASCADE
 	)
-	department = models.CharField(max_length=100)
+	department = models.ForeignKey(Group, max_length=100)
 
-	class Meta:
-		pass
+	def __str__(self):
+		return self.user.username
 
 class Task(models.Model):
 	title = models.CharField(max_length=100)
-	assigned_task = models.TextField()
-	pub_date = models.DateField()
+	content = models.TextField()
+	pub_date = models.DateField(verbose_name='Assigned on:')
+	due_date = models.DateField(verbose_name='Due Date')
 	assign_to_employee = models.ForeignKey(
 		Employee, 
 		#default='employee',
@@ -30,7 +31,9 @@ class Task(models.Model):
 	)
 	assign_to_group = models.ForeignKey(
 		Group,
-		on_delete=models.CASCADE
+		on_delete=models.CASCADE,
+		blank=True,
+		null=True
 	)
 	status = models.CharField(max_length=1, choices=TASK_STATUS)
 
