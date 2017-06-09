@@ -31,13 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'employee_records.apps.EmployeeRecordsConfig',
+    # django apps
     'django.contrib.admin',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'suit_redactor',
+
+    #my apps
+    'employee_records.apps.EmployeeRecordsConfig',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +130,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# Third party app settings
+ACCOUNT_ACTIVATION_DAYS = 7 # one week activation window
+REGISTRATION_AUTO_LOGIN = True # Automatically log in user.
+SITE_ID = 1
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
