@@ -14,7 +14,11 @@ class Employee(models.Model):
 		verbose_name='Employee Name', 
 		on_delete=models.CASCADE
 	)
-	department = models.ForeignKey(Group, max_length=100)
+	group = models.ForeignKey(Group, max_length=100, verbose_name='Department')
+	salary = models.IntegerField()
+	date_of_birth = models.DateField()
+
+
 
 	def __str__(self):
 		return self.user.username
@@ -24,18 +28,15 @@ class Task(models.Model):
 	content = models.TextField()
 	pub_date = models.DateField(verbose_name='Assigned on:')
 	due_date = models.DateField(verbose_name='Due Date')
-	assign_to_employee = models.ForeignKey(
+	assign_to_employee = models.ManyToManyField(
 		Employee, 
-		#default='employee',
-		on_delete=models.CASCADE
 	)
-	assign_to_group = models.ForeignKey(
+	assign_to_group = models.ManyToManyField(
 		Group,
-		on_delete=models.CASCADE,
 		blank=True,
-		null=True
 	)
 	status = models.CharField(max_length=1, choices=TASK_STATUS)
 
+	
 	def __str__(self):
 		return self.title
