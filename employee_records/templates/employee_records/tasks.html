@@ -1,0 +1,10 @@
+{% if user.is_authenticated %}
+<h2>Tasks</h2>
+<ul>
+{% for task in user_tasks %}
+<li>{{ task.title }}</li>
+{% endfor %}
+</ul>
+{% else %}
+	{{ error_message }}
+{% endif %}
