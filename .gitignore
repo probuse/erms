@@ -1,3 +1,5 @@
 *.pyc
 *.py~
 .gitignore~
+erms/settings.py
+erms/settings.py~
