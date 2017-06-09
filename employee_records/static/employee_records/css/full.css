@@ -1,0 +1,22 @@
+/*
+ * Start Bootstrap - Full (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: none;
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.full {
+    background: url('https://previews.123rf.com/images/elenabsl/elenabsl1502/elenabsl150200053/36983805-Business-people-working-a-on-a-desk-top-view-with-computer-tablet-and-stationery-Stock-Vector.jpg') no-repeat center center fixed;
+    /*background: url("{% static 'employee_records/images/team_work_ants.jpg' %}") no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
