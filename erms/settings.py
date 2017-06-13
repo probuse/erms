@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'suit_redactor',
-
     #my apps
     'employee_records.apps.EmployeeRecordsConfig',
 ]
@@ -140,3 +139,6 @@ REGISTRATION_AUTO_LOGIN = True # Automatically log in user.
 SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# redirect user to index page after login
+LOGIN_REDIRECT_URL = 'employee_records:index'
