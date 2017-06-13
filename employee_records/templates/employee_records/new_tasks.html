@@ -1,0 +1,14 @@
+{% if user.is_authenticated %}
+	{% if user_tasks %}
+		<h2>New Tasks assigned to {{ request.user }}</h2>
+		<ul>
+		{% for task in user_tasks %}
+			<li><a href="{% url 'employee_records:task_detail' task.id %}">{{ task.title }}</a></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<h4>No Tasks assigned to {{ request.user }} yet.</h4>
+	{% endif %}
+{% else %}
+	<h4>You do not have permission to view this content. Please <a href="{% url 'employee_records:login' %}"> Login </a> to proceed</h4>
+{% endif %}
