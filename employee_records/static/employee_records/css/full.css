@@ -13,7 +13,7 @@ body {
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
 .full {
-    background: url('https://previews.123rf.com/images/elenabsl/elenabsl1502/elenabsl150200053/36983805-Business-people-working-a-on-a-desk-top-view-with-computer-tablet-and-stationery-Stock-Vector.jpg') no-repeat center center fixed;
+    background: url() no-repeat center center fixed;
     /*background: url("{% static 'employee_records/images/team_work_ants.jpg' %}") no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
