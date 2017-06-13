@@ -1,1 +1,32 @@
-Hello there...we are live.
+{% extends "employee_records/base1.html" %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="row">
+	<div class="col-md-6 col-sm-12">
+		<h1> Groups</h1>
+		<a href="#">Your Groups</a>
+			{% for group in user_groups %}
+			<br>
+			{{ group }}
+			{% endfor %}
+
+
+		<h1> Tasks</h1>
+		<a href="{% url 'employee_records:new_tasks'%}">New</a><br>
+		<a href="#">Ongoing</a><br>
+		<a href="#">Completed</a><br>
+
+		<h1> Reports</h1>
+		<a href="#">Reports</a>
+	</div>
+	<div class="col-md-6 col-sm-12">
+		<h1> Recent Activity</h1>
+		
+	</div>
+
+</div>
+{% else %}
+<h3>You are not authorized to view this page. Please <a href="#">login</a> to continue</h3>
+{% endif %}
+
+{% endblock %}
