@@ -35,8 +35,8 @@ class Task(models.Model):
 		Group,
 		blank=True,
 	)
-	status = models.CharField(max_length=1, choices=TASK_STATUS)
+	status = models.CharField(max_length=1, choices=TASK_STATUS, default='n')
 
 	
 	def __str__(self):
-		return self.title
+			return self.title
